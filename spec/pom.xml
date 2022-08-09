@@ -98,6 +98,10 @@
   </dependencies>
   <repositories>
     <repository>
+      <id>first</id>
+      <url>http://repo.example.com</url>
+      <name>First</name>
+      <layout>legacy</layout>
       <releases>
         <enabled>true</enabled>
         <updatePolicy>daily</updatePolicy>
@@ -108,28 +112,65 @@
         <updatePolicy>never</updatePolicy>
         <checksumPolicy>none</checksumPolicy>
       </snapshots>
-      <id>first</id>
-      <name>First</name>
-      <url>http://repo.example.com</url>
-      <layout>legacy</layout>
     </repository>
     <repository>
-      <releases>
-        <enabled>false</enabled>
-        <updatePolicy>daily</updatePolicy>
-        <checksumPolicy>strict</checksumPolicy>
-      </releases>
       <snapshots>
         <enabled>true</enabled>
         <updatePolicy>never</updatePolicy>
         <checksumPolicy>none</checksumPolicy>
       </snapshots>
+      <releases>
+        <enabled>false</enabled>
+        <updatePolicy>daily</updatePolicy>
+        <checksumPolicy>strict</checksumPolicy>
+      </releases>
       <id>snapshots</id>
-      <name>First Snapshots</name>
       <url>http://snaphots.example.com</url>
+      <name>First Snapshots</name>
       <layout>legacy</layout>
     </repository>
   </repositories>
+  <pluginRepositories>
+    <pluginRepository>
+      <id>first</id>
+      <url>http://pluginrepo.example.com</url>
+      <name>First</name>
+      <layout>legacy</layout>
+      <releases>
+        <enabled>true</enabled>
+        <updatePolicy>daily</updatePolicy>
+        <checksumPolicy>strict</checksumPolicy>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+        <updatePolicy>never</updatePolicy>
+        <checksumPolicy>none</checksumPolicy>
+      </snapshots>
+    </pluginRepository>
+  </pluginRepositories>
+  <profiles>
+    <profile>
+      <id>one</id>
+      <activation>
+        <activeByDefault>false</activeByDefault>
+        <jdk>1.7</jdk>
+        <os>
+          <family>nix</family>
+          <version>2.7</version>
+          <arch>x86_64</arch>
+          <name>linux</name>
+        </os>
+        <file>
+          <missing>required_file</missing>
+          <exists>optional</exists>
+        </file>
+        <property>
+          <name>test</name>
+          <value>extended</value>
+        </property>
+      </activation>
+    </profile>
+  </profiles>
   <modelVersion>1.0.1</modelVersion>
   <name>my name</name>
   <artifactId>project</artifactId>
@@ -187,8 +228,8 @@
     <downloadUrl>http://dev.example.com/downloads</downloadUrl>
     <repository>
       <id>first</id>
-      <name>First</name>
       <url>http://repo.example.com</url>
+      <name>First</name>
       <layout>legacy</layout>
       <releases>
         <enabled>true</enabled>
@@ -203,8 +244,8 @@
     </repository>
     <snapshotRepository>
       <id>snapshots</id>
-      <name>First Snapshots</name>
       <url>http://snaphots.example.com</url>
+      <name>First Snapshots</name>
       <layout>legacy</layout>
       <releases>
         <enabled>false</enabled>
@@ -232,12 +273,6 @@
   <dependencyManagement>
     <dependencies>
       <dependency>
-        <groupId>com.example</groupId>
-        <artifactId>tools</artifactId>
-        <version>1.2.3</version>
-        <classifier>super</classifier>
-        <scope>provided</scope>
-        <systemPath>/home/development/tools.jar</systemPath>
         <exclusions>
           <exclusion>
             <groupId>org.example</groupId>
@@ -248,52 +283,16 @@
             <artifactId>something</artifactId>
           </exclusion>
         </exclusions>
+        <groupId>com.example</groupId>
+        <artifactId>tools</artifactId>
+        <version>1.2.3</version>
+        <classifier>super</classifier>
+        <scope>provided</scope>
+        <systemPath>/home/development/tools.jar</systemPath>
         <optional>true</optional>
       </dependency>
     </dependencies>
   </dependencyManagement>
-
-  <pluginRepositories>
-    <pluginRepository>
-      <releases>
-        <enabled>true</enabled>
-        <updatePolicy>daily</updatePolicy>
-        <checksumPolicy>strict</checksumPolicy>
-      </releases>
-      <snapshots>
-        <enabled>false</enabled>
-        <updatePolicy>never</updatePolicy>
-        <checksumPolicy>none</checksumPolicy>
-      </snapshots>
-      <id>first</id>
-      <name>First</name>
-      <url>http://pluginrepo.example.com</url>
-      <layout>legacy</layout>
-    </pluginRepository>
-  </pluginRepositories>
-  <profiles>
-    <profile>
-      <id>one</id>
-      <activation>
-        <activeByDefault>false</activeByDefault>
-        <jdk>1.7</jdk>
-        <os>
-          <name>linux</name>
-          <family>nix</family>
-          <arch>x86_64</arch>
-          <version>2.7</version>
-        </os>
-        <property>
-          <name>test</name>
-          <value>extended</value>
-        </property>
-        <file>
-          <missing>required_file</missing>
-          <exists>optional</exists>
-        </file>
-      </activation>
-    </profile>
-  </profiles>
   <build>
     <extensions>
       <extension>
@@ -304,28 +303,28 @@
     </extensions>
     <resources>
       <resource>
-        <targetPath>target</targetPath>
-        <filtering>true</filtering>
-        <directory>resources</directory>
         <includes>
           <include>**/*</include>
         </includes>
         <excludes>
           <exclude>*~</exclude>
         </excludes>
+        <targetPath>target</targetPath>
+        <filtering>true</filtering>
+        <directory>resources</directory>
       </resource>
     </resources>
     <testResources>
       <testResource>
-        <targetPath>target/test</targetPath>
-        <filtering>false</filtering>
-        <directory>testresources</directory>
         <includes>
           <include>**/*</include>
         </includes>
         <excludes>
           <exclude>*~</exclude>
         </excludes>
+        <targetPath>target/test</targetPath>
+        <filtering>false</filtering>
+        <directory>testresources</directory>
       </testResource>
     </testResources>
     <plugins>
@@ -373,8 +372,8 @@
                 </chmod>
               </tasks>
             </configuration>
-            <phase>package</phase>
             <id>copy</id>
+            <phase>package</phase>
           </execution>
         </executions>
         <dependencies>

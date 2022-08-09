@@ -25,8 +25,8 @@
     <dependency>
       <groupId>rubygems</groupId>
       <artifactId>virtus</artifactId>
-      <version>[0,)</version>
       <type>gem</type>
+      <version>[0,)</version>
     </dependency>
     <dependency>
       <groupId>org.bouncycastle</groupId>

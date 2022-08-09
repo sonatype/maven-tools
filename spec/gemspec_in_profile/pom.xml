@@ -10,35 +10,8 @@
 -->
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>no_group_id_given</groupId>
-  <artifactId>gemspec_in_profile</artifactId>
-  <version>0.0.0</version>
-  <name>gemspec_in_profile</name>
-  <build>
-    <extensions>
-      <extension>
-        <groupId>org.torquebox.mojo</groupId>
-        <artifactId>mavengem-wagon</artifactId>
-        <version>${mavengem.wagon.version}</version>
-      </extension>
-    </extensions>
-  </build>
   <profiles>
     <profile>
-      <id>gem</id>
-      <build>
-        <plugins>
-          <plugin>
-            <configuration>
-              <gemspec>bouncy-castle-java.gemspec</gemspec>
-            </configuration>
-            <groupId>de.saumya.mojo</groupId>
-            <artifactId>gem-maven-plugin</artifactId>
-            <version>${jruby.plugins.version}</version>
-          </plugin>
-        </plugins>
-      </build>
       <properties>
         <project.build.sourceEncoding>utf-8</project.build.sourceEncoding>
         <jruby.plugins.version>2.0.1</jruby.plugins.version>
@@ -62,6 +35,33 @@
           <url>mavengem:https://rubygems.org</url>
         </repository>
       </repositories>
+      <id>gem</id>
+      <build>
+        <plugins>
+          <plugin>
+            <configuration>
+              <gemspec>bouncy-castle-java.gemspec</gemspec>
+            </configuration>
+            <groupId>de.saumya.mojo</groupId>
+            <artifactId>gem-maven-plugin</artifactId>
+            <version>${jruby.plugins.version}</version>
+          </plugin>
+        </plugins>
+      </build>
     </profile>
   </profiles>
+  <modelVersion>4.0.0</modelVersion>
+  <name>gemspec_in_profile</name>
+  <groupId>no_group_id_given</groupId>
+  <artifactId>gemspec_in_profile</artifactId>
+  <version>0.0.0</version>
+  <build>
+    <extensions>
+      <extension>
+        <groupId>org.torquebox.mojo</groupId>
+        <artifactId>mavengem-wagon</artifactId>
+        <version>${mavengem.wagon.version}</version>
+      </extension>
+    </extensions>
+  </build>
 </project>
