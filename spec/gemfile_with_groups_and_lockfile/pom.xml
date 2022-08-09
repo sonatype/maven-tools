@@ -104,10 +104,10 @@
     </profile>
   </profiles>
   <modelVersion>4.0.0</modelVersion>
+  <name>gemfile_with_groups_and_lockfile</name>
   <groupId>no_group_id_given</groupId>
   <artifactId>gemfile_with_groups_and_lockfile</artifactId>
   <version>0.0.0</version>
-  <name>gemfile_with_groups_and_lockfile</name>
   <build>
     <extensions>
       <extension>
@@ -120,10 +120,10 @@
       <plugin>
         <executions>
           <execution>
-            <id>install gems</id>
             <goals>
               <goal>initialize</goal>
             </goals>
+            <id>install gems</id>
           </execution>
         </executions>
         <groupId>de.saumya.mojo</groupId>

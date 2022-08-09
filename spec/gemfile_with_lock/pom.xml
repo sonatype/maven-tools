@@ -41,17 +41,11 @@
   </repositories>
   <profiles>
     <profile>
-      <id>gemfile</id>
-      <activation>
-        <file>
-          <missing>Gemfile.lock</missing>
-        </file>
-      </activation>
       <dependencies>
         <dependency>
-          <type>gem</type>
           <groupId>rubygems</groupId>
           <artifactId>virtus</artifactId>
+          <type>gem</type>
           <version>[0,)</version>
         </dependency>
         <dependency>
@@ -68,6 +62,12 @@
           <version>[2.11,2.99999]</version>
         </dependency>
       </dependencies>
+      <id>gemfile</id>
+      <activation>
+        <file>
+          <missing>Gemfile.lock</missing>
+        </file>
+      </activation>
     </profile>
     <profile>
       <dependencies>

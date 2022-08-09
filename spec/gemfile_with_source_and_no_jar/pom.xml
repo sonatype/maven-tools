@@ -72,8 +72,8 @@
     </plugins>
     <directory>${basedir}/pkg</directory>
   </build>
-  <url>http://github.com/jruby/jruby/tree/master/gems/bouncy-castle-java/</url>
   <description>Gem redistribution of "Legion of the Bouncy Castle Java cryptography APIs" jars at http://www.bouncycastle.org/java.html</description>
+  <url>http://github.com/jruby/jruby/tree/master/gems/bouncy-castle-java/</url>
   <scm>
     <connection>https://github.com/jruby/jruby/tree/master/gems/bouncy-castle-java.git</connection>
     <url>http://github.com/jruby/jruby/tree/master/gems/bouncy-castle-java/</url>

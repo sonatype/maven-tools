@@ -90,10 +90,10 @@
       <artifactId>tools</artifactId>
       <version>2.3</version>
       <type>war</type>
-      <classifier>super</classifier>
-      <scope>provided</scope>
       <systemPath>/home/development/wartools.jar</systemPath>
+      <classifier>super</classifier>
       <optional>false</optional>
+      <scope>provided</scope>
     </dependency>
   </dependencies>
   <repositories>
@@ -286,10 +286,10 @@
         <groupId>com.example</groupId>
         <artifactId>tools</artifactId>
         <version>1.2.3</version>
-        <classifier>super</classifier>
-        <scope>provided</scope>
         <systemPath>/home/development/tools.jar</systemPath>
+        <classifier>super</classifier>
         <optional>true</optional>
+        <scope>provided</scope>
       </dependency>
     </dependencies>
   </dependencyManagement>
