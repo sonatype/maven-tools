@@ -6,8 +6,8 @@ describe Maven::Tools::GemspecDependencies do
   let( :spec ) do
     Gem::Specification.new do |s|
       s.add_dependency 'thor', '>= 0.14.6', '< 2.0'
-      s.add_dependency 'maven-tools', "~> 0.32.3" 
-      s.add_development_dependency 'minitest', '~> 5.0'  
+      s.add_dependency 'maven-tools', "~> 0.32.3"
+      s.add_development_dependency 'minitest', '~> 5.0'
       s.add_development_dependency 'rake', '~> 10.0'
       s.requirements << 'jar sdas:das:tes, 123'
       s.requirements << 'jar sdas:das, 123'
@@ -21,11 +21,11 @@ describe Maven::Tools::GemspecDependencies do
       s.requirements << 'jar "de.sdas.asd:das", "blub", 123,"[fds:fre, ferf:de]"'
     end
   end
-  
-  subject { Maven::Tools::GemspecDependencies.new( spec ) } 
+
+  subject { Maven::Tools::GemspecDependencies.new( spec ) }
 
   it 'should setup artifact' do
-    _(subject.runtime).must_equal ["rubygems:thor:[0.14.6,2.0", "rubygems:maven-tools:[0.32.3,0.32.99999]"]
+    _(subject.runtime).must_equal ["rubygems:thor:[0.14.6,2.0)", "rubygems:maven-tools:[0.32.3,0.32.99999]"]
     _(subject.development).must_equal ["rubygems:minitest:[5.0,5.99999]", "rubygems:rake:[10.0,10.99999]"]
     _(subject.java_runtime).must_equal [ ["sdas", "das", "jar", "tes", "123"],
                            ["sdas", "das", "jar", "123"],

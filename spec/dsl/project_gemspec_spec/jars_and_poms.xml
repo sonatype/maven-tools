@@ -1,12 +1,4 @@
 <project>
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>rubygems</groupId>
-  <artifactId>maven-tools</artifactId>
-  <version>123</version>
-  <packaging>gem</packaging>
-  <name>helpers for maven related tasks</name>
-  <url>http://github.com/torquebox/maven-tools</url>
-  <description>adds versions conversion from rubygems to maven and vice versa, ruby DSL for POM (Project Object Model from maven), pom generators, etc</description>
   <licenses>
     <license>
       <name>MIT</name>
@@ -20,10 +12,6 @@
       <email>m.kristian@web.de</email>
     </developer>
   </developers>
-  <scm>
-    <connection>https://github.com/torquebox/maven-tools.git</connection>
-    <url>http://github.com/torquebox/maven-tools</url>
-  </scm>
   <properties>
     <project.build.sourceEncoding>utf-8</project.build.sourceEncoding>
     <jruby.plugins.version>2.0.1</jruby.plugins.version>
@@ -36,22 +24,22 @@
       <version>1.6.4</version>
     </dependency>
     <dependency>
+      <type>pom</type>
       <groupId>org.jruby</groupId>
       <artifactId>jruby</artifactId>
       <version>1.7.16</version>
-      <type>pom</type>
     </dependency>
     <dependency>
-      <groupId>org.jruby</groupId>
-      <artifactId>jruby</artifactId>
-      <version>1.7.16</version>
-      <classifier>noasm</classifier>
       <exclusions>
         <exclusion>
           <groupId>org.jruby</groupId>
           <artifactId>jruby-stdlib</artifactId>
         </exclusion>
       </exclusions>
+      <groupId>org.jruby</groupId>
+      <artifactId>jruby</artifactId>
+      <version>1.7.16</version>
+      <classifier>noasm</classifier>
     </dependency>
   </dependencies>
   <repositories>
@@ -60,6 +48,11 @@
       <url>mavengem:https://rubygems.org</url>
     </repository>
   </repositories>
+  <modelVersion>4.0.0</modelVersion>
+  <name>helpers for maven related tasks</name>
+  <groupId>rubygems</groupId>
+  <artifactId>maven-tools</artifactId>
+  <version>123</version>
   <build>
     <extensions>
       <extension>
@@ -73,16 +66,23 @@
         <version>${jruby.plugins.version}</version>
       </extension>
     </extensions>
-    <directory>${basedir}/pkg</directory>
     <plugins>
       <plugin>
-        <groupId>de.saumya.mojo</groupId>
-        <artifactId>gem-maven-plugin</artifactId>
-        <version>${jruby.plugins.version}</version>
         <configuration>
           <gemspec>jars_and_poms.gemspec</gemspec>
         </configuration>
+        <groupId>de.saumya.mojo</groupId>
+        <artifactId>gem-maven-plugin</artifactId>
+        <version>${jruby.plugins.version}</version>
       </plugin>
     </plugins>
+    <directory>${basedir}/pkg</directory>
   </build>
+  <description>adds versions conversion from rubygems to maven and vice versa, ruby DSL for POM (Project Object Model from maven), pom generators, etc</description>
+  <url>http://github.com/torquebox/maven-tools</url>
+  <scm>
+    <connection>https://github.com/torquebox/maven-tools.git</connection>
+    <url>http://github.com/torquebox/maven-tools</url>
+  </scm>
+  <packaging>gem</packaging>
 </project>

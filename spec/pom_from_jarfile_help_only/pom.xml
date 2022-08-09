@@ -10,15 +10,8 @@
 -->
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>no_group_id_given</groupId>
-  <artifactId>pom_from_jarfile_help_only</artifactId>
-  <version>0.0.0</version>
-  <name>example from jarfile</name>
   <dependencies>
     <dependency>
-      <groupId>asd</groupId>
-      <artifactId>asd</artifactId>
       <exclusions>
         <exclusion>
           <groupId>asd</groupId>
@@ -27,11 +20,18 @@
         <exclusion>
         </exclusion>
       </exclusions>
-    </dependency>
-    <dependency>
       <groupId>asd</groupId>
       <artifactId>asd</artifactId>
+    </dependency>
+    <dependency>
       <type>pom</type>
+      <groupId>asd</groupId>
+      <artifactId>asd</artifactId>
     </dependency>
   </dependencies>
+  <modelVersion>4.0.0</modelVersion>
+  <name>example from jarfile</name>
+  <groupId>no_group_id_given</groupId>
+  <artifactId>pom_from_jarfile_help_only</artifactId>
+  <version>0.0.0</version>
 </project>

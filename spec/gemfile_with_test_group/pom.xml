@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>no_group_id_given</groupId>
-  <artifactId>gemfile_with_test_group</artifactId>
-  <version>0.0.0</version>
-  <name>gemfile_with_test_group</name>
   <properties>
     <project.build.sourceEncoding>utf-8</project.build.sourceEncoding>
     <jruby.plugins.version>2.0.1</jruby.plugins.version>
@@ -17,31 +12,6 @@
       <url>mavengem:https://rubygems.org</url>
     </repository>
   </repositories>
-  <build>
-    <extensions>
-      <extension>
-        <groupId>org.torquebox.mojo</groupId>
-        <artifactId>mavengem-wagon</artifactId>
-        <version>${mavengem.wagon.version}</version>
-      </extension>
-    </extensions>
-    <directory>${basedir}/pkg</directory>
-    <plugins>
-      <plugin>
-        <groupId>de.saumya.mojo</groupId>
-        <artifactId>gem-maven-plugin</artifactId>
-        <version>${jruby.plugins.version}</version>
-        <executions>
-          <execution>
-            <id>install gems</id>
-            <goals>
-              <goal>initialize</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-    </plugins>
-  </build>
   <profiles>
     <profile>
       <id>gemfile</id>
@@ -88,81 +58,81 @@
           <type>gem</type>
         </dependency>
         <dependency>
+          <scope>test</scope>
+          <type>gem</type>
           <groupId>rubygems</groupId>
           <artifactId>codeclimate-test-reporter</artifactId>
           <version>[0,)</version>
-          <type>gem</type>
-          <scope>test</scope>
         </dependency>
         <dependency>
+          <scope>test</scope>
+          <type>gem</type>
           <groupId>rubygems</groupId>
           <artifactId>rspec-mocks</artifactId>
           <version>[2.14.1,2.14.99999]</version>
-          <type>gem</type>
-          <scope>test</scope>
         </dependency>
         <dependency>
+          <scope>test</scope>
+          <type>gem</type>
           <groupId>rubygems</groupId>
           <artifactId>rspec</artifactId>
           <version>[2.14.1,2.14.99999]</version>
-          <type>gem</type>
-          <scope>test</scope>
         </dependency>
         <dependency>
+          <scope>test</scope>
+          <type>gem</type>
           <groupId>rubygems</groupId>
           <artifactId>simplecov</artifactId>
           <version>[0.8.2,0.8.99999]</version>
-          <type>gem</type>
-          <scope>test</scope>
         </dependency>
         <dependency>
+          <scope>test</scope>
+          <type>gem</type>
           <groupId>rubygems</groupId>
           <artifactId>thor</artifactId>
           <version>[0.18.1,0.18.99999]</version>
-          <type>gem</type>
-          <scope>test</scope>
         </dependency>
         <dependency>
+          <scope>test</scope>
+          <type>gem</type>
           <groupId>rubygems</groupId>
           <artifactId>vcr</artifactId>
           <version>[2.8.0,2.8.99999]</version>
-          <type>gem</type>
-          <scope>test</scope>
         </dependency>
         <dependency>
+          <scope>test</scope>
+          <type>gem</type>
           <groupId>rubygems</groupId>
           <artifactId>webmock</artifactId>
           <version>[1.16.0,1.16.99999]</version>
-          <type>gem</type>
-          <scope>test</scope>
         </dependency>
         <dependency>
+          <scope>test</scope>
+          <type>gem</type>
           <groupId>rubygems</groupId>
           <artifactId>fake_sqs</artifactId>
           <version>[0.1.0,0.1.99999]</version>
-          <type>gem</type>
-          <scope>test</scope>
         </dependency>
         <dependency>
+          <scope>test</scope>
+          <type>gem</type>
           <groupId>rubygems</groupId>
           <artifactId>rack-test</artifactId>
           <version>[0.6.2,0.6.99999]</version>
-          <type>gem</type>
-          <scope>test</scope>
         </dependency>
         <dependency>
+          <scope>test</scope>
+          <type>gem</type>
           <groupId>rubygems</groupId>
           <artifactId>database_cleaner</artifactId>
           <version>[1.2.0,1.2.99999]</version>
-          <type>gem</type>
-          <scope>test</scope>
         </dependency>
         <dependency>
+          <scope>test</scope>
+          <type>gem</type>
           <groupId>rubygems</groupId>
           <artifactId>shoulda-matchers</artifactId>
           <version>[2.6.1,2.6.99999]</version>
-          <type>gem</type>
-          <scope>test</scope>
         </dependency>
       </dependencies>
     </profile>
@@ -176,13 +146,8 @@
       <build>
         <plugins>
           <plugin>
-            <groupId>de.saumya.mojo</groupId>
-            <artifactId>gem-maven-plugin</artifactId>
-            <version>${jruby.plugins.version}</version>
             <executions>
               <execution>
-                <id>install gem sets for compile</id>
-                <phase>initialize</phase>
                 <goals>
                   <goal>sets</goal>
                 </goals>
@@ -221,10 +186,10 @@
                     <equalizer>0.0.9</equalizer>
                   </gems>
                 </configuration>
+                <id>install gem sets for compile</id>
+                <phase>initialize</phase>
               </execution>
               <execution>
-                <id>install gem sets for test</id>
-                <phase>initialize</phase>
                 <goals>
                   <goal>sets</goal>
                 </goals>
@@ -255,11 +220,46 @@
                     <shoulda-matchers>2.6.1</shoulda-matchers>
                   </gems>
                 </configuration>
+                <id>install gem sets for test</id>
+                <phase>initialize</phase>
               </execution>
             </executions>
+            <groupId>de.saumya.mojo</groupId>
+            <artifactId>gem-maven-plugin</artifactId>
+            <version>${jruby.plugins.version}</version>
           </plugin>
         </plugins>
       </build>
     </profile>
   </profiles>
+  <modelVersion>4.0.0</modelVersion>
+  <name>gemfile_with_test_group</name>
+  <groupId>no_group_id_given</groupId>
+  <artifactId>gemfile_with_test_group</artifactId>
+  <version>0.0.0</version>
+  <build>
+    <extensions>
+      <extension>
+        <groupId>org.torquebox.mojo</groupId>
+        <artifactId>mavengem-wagon</artifactId>
+        <version>${mavengem.wagon.version}</version>
+      </extension>
+    </extensions>
+    <plugins>
+      <plugin>
+        <executions>
+          <execution>
+            <id>install gems</id>
+            <goals>
+              <goal>initialize</goal>
+            </goals>
+          </execution>
+        </executions>
+        <groupId>de.saumya.mojo</groupId>
+        <artifactId>gem-maven-plugin</artifactId>
+        <version>${jruby.plugins.version}</version>
+      </plugin>
+    </plugins>
+    <directory>${basedir}/pkg</directory>
+  </build>
 </project>

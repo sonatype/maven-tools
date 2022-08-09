@@ -30,12 +30,12 @@
       <build>
         <plugins>
           <plugin>
-            <groupId>de.saumya.mojo</groupId>
-            <artifactId>gem-maven-plugin</artifactId>
-            <version>${jruby.plugins.version}</version>
             <configuration>
               <gemspec>bouncy-castle-java.gemspec</gemspec>
             </configuration>
+            <groupId>de.saumya.mojo</groupId>
+            <artifactId>gem-maven-plugin</artifactId>
+            <version>${jruby.plugins.version}</version>
           </plugin>
         </plugins>
       </build>

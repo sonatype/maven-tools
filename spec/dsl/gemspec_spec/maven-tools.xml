@@ -1,44 +1,80 @@
 <project>
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>no_group_id_given</groupId>
-  <artifactId>BASEDIR</artifactId>
-  <version>0.0.0</version>
-  <name>BASEDIR</name>
   <properties>
     <jruby.plugins.version>2.0.1</jruby.plugins.version>
     <mavengem.wagon.version>1.0.3</mavengem.wagon.version>
   </properties>
   <dependencies>
     <dependency>
-      <groupId>rubygems</groupId>
-      <artifactId>virtus</artifactId>
-      <version>[1.0,1.99999]</version>
       <type>gem</type>
+      <groupId>rubygems</groupId>
+      <artifactId>dry-container</artifactId>
+      <version>[0.7.2,0.7.99999]</version>
     </dependency>
     <dependency>
+      <type>gem</type>
+      <groupId>rubygems</groupId>
+      <artifactId>dry-configurable</artifactId>
+      <version>[0.7.2,0.7.99999]</version>
+    </dependency>
+    <dependency>
+      <type>gem</type>
+      <groupId>rubygems</groupId>
+      <artifactId>dry-core</artifactId>
+      <version>[0.6.0,0.6.99999]</version>
+    </dependency>
+    <dependency>
+      <type>gem</type>
+      <groupId>rubygems</groupId>
+      <artifactId>dry-inflector</artifactId>
+      <version>[0.2.0,0.2.99999]</version>
+    </dependency>
+    <dependency>
+      <type>gem</type>
+      <groupId>rubygems</groupId>
+      <artifactId>dry-types</artifactId>
+      <version>[1.5.1,1.5.99999]</version>
+    </dependency>\
+    <dependency>
+      <type>gem</type>
+      <groupId>rubygems</groupId>
+      <artifactId>dry-struct</artifactId>
+      <version>[1.4.0,1.4.99999]</version>
+    </dependency>
+    <dependency>
+      <type>gem</type>
+      <groupId>rubygems</groupId>
+      <artifactId>dry-struct-setters</artifactId>
+      <version>[0.4.0,0.4.99999]</version>
+    </dependency>
+    <dependency>
+      <scope>test</scope>
+      <type>gem</type>
       <groupId>rubygems</groupId>
       <artifactId>rake</artifactId>
       <version>[10.0,10.99999]</version>
-      <type>gem</type>
-      <scope>test</scope>
     </dependency>
     <dependency>
+      <scope>test</scope>
+      <type>gem</type>
       <groupId>rubygems</groupId>
       <artifactId>minitest</artifactId>
       <version>[5.3,5.99999]</version>
-      <type>gem</type>
-      <scope>test</scope>
     </dependency>
   </dependencies>
+  <modelVersion>4.0.0</modelVersion>
+  <name>BASEDIR</name>
+  <groupId>no_group_id_given</groupId>
+  <artifactId>BASEDIR</artifactId>
+  <version>0.0.0</version>
   <build>
     <plugins>
       <plugin>
-        <groupId>de.saumya.mojo</groupId>
-        <artifactId>gem-maven-plugin</artifactId>
-        <version>${jruby.plugins.version}</version>
         <configuration>
           <gemspec>maven-tools.gemspec</gemspec>
         </configuration>
+        <groupId>de.saumya.mojo</groupId>
+        <artifactId>gem-maven-plugin</artifactId>
+        <version>${jruby.plugins.version}</version>
       </plugin>
     </plugins>
   </build>

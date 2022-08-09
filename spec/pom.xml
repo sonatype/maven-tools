@@ -10,23 +10,6 @@
 -->
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <modelVersion>1.0.1</modelVersion>
-  <parent>
-    <groupId>example</groupId>
-    <artifactId>parent</artifactId>
-    <version>1.1</version>
-    <relativePath>../pom.xml</relativePath>
-  </parent>
-  <artifactId>project</artifactId>
-  <packaging>jar</packaging>
-  <name>my name</name>
-  <url>example.com</url>
-  <description>some description</description>
-  <inceptionYear>2020</inceptionYear>
-  <organization>
-    <name>ngo</name>
-    <url>ngo.org</url>
-  </organization>
   <licenses>
     <license>
       <name>AGPL</name>
@@ -37,174 +20,62 @@
   </licenses>
   <developers>
     <developer>
+      <roles>
+        <role>developer</role>
+        <role>architect</role>
+      </roles>
+      <properties>
+        <gender>male</gender>
+      </properties>
       <id>1</id>
       <name>first</name>
       <url>example.com/first</url>
       <email>first@example.com</email>
       <organization>orga</organization>
       <organizationUrl>example.org</organizationUrl>
-      <roles>
-        <role>developer</role>
-        <role>architect</role>
-      </roles>
       <timezone>IST</timezone>
-      <properties>
-        <gender>male</gender>
-      </properties>
     </developer>
   </developers>
   <contributors>
     <contributor>
+      <roles>
+        <role>developer</role>
+        <role>architect</role>
+      </roles>
+      <properties>
+        <gender>male</gender>
+      </properties>
       <name>first</name>
       <url>example.com/first</url>
       <email>first@example.com</email>
       <organization>orga</organization>
       <organizationUrl>example.org</organizationUrl>
-      <roles>
-        <role>developer</role>
-        <role>architect</role>
-      </roles>
       <timezone>IST</timezone>
-      <properties>
-        <gender>male</gender>
-      </properties>
     </contributor>
   </contributors>
   <mailingLists>
     <mailingList>
+      <otherArchives>
+        <otherArchive>example.com/archive1</otherArchive>
+        <otherArchive>example.com/archive2</otherArchive>
+      </otherArchives>
       <name>development</name>
       <subscribe>subcribe@example.com</subscribe>
       <unsubscribe>unsubcribe@example.com</unsubscribe>
       <post>post@example.com</post>
       <archive>example.com/archive</archive>
-      <otherArchives>
-        <otherArchive>example.com/archive1</otherArchive>
-        <otherArchive>example.com/archive2</otherArchive>
-      </otherArchives>
     </mailingList>
   </mailingLists>
-  <prerequisites>
-    <maven>3.0.5</maven>
-  </prerequisites>
   <modules>
     <module>part1</module>
     <module>part2</module>
   </modules>
-  <scm>
-    <connection>scm:git:git://github.com/torquebox/maven-tools.git</connection>
-    <developerConnection>scm:git:ssh://git@github.com/torquebox/maven-tools.git</developerConnection>
-    <tag>first</tag>
-    <url>http://github.com/torquebox/maven-tools</url>
-  </scm>
-  <issueManagement>
-    <system>jira</system>
-    <url>https://issues.sonatype.org/</url>
-  </issueManagement>
-  <ciManagement>
-    <system>travis</system>
-    <url>travis-ci.org/jruby/jruby</url>
-    <notifiers>
-      <notifier>
-        <type>email</type>
-        <address>mail2@example.com</address>
-      </notifier>
-      <notifier>
-        <type>email</type>
-        <sendOnError>true</sendOnError>
-        <sendOnFailure>false</sendOnFailure>
-        <sendOnSuccess>true</sendOnSuccess>
-        <sendOnWarning>false</sendOnWarning>
-        <address>mail@example.com</address>
-        <configuration>
-          <key1>value1</key1>
-          <key2>value2</key2>
-        </configuration>
-      </notifier>
-    </notifiers>
-  </ciManagement>
-  <distributionManagement>
-    <repository>
-      <releases>
-        <enabled>true</enabled>
-        <updatePolicy>daily</updatePolicy>
-        <checksumPolicy>strict</checksumPolicy>
-      </releases>
-      <snapshots>
-        <enabled>false</enabled>
-        <updatePolicy>never</updatePolicy>
-        <checksumPolicy>none</checksumPolicy>
-      </snapshots>
-      <id>first</id>
-      <name>First</name>
-      <url>http://repo.example.com</url>
-      <layout>legacy</layout>
-    </repository>
-    <snapshotRepository>
-      <releases>
-        <enabled>false</enabled>
-        <updatePolicy>daily</updatePolicy>
-        <checksumPolicy>strict</checksumPolicy>
-      </releases>
-      <snapshots>
-        <enabled>true</enabled>
-        <updatePolicy>never</updatePolicy>
-        <checksumPolicy>none</checksumPolicy>
-      </snapshots>
-      <id>snapshots</id>
-      <name>First Snapshots</name>
-      <url>http://snaphots.example.com</url>
-      <layout>legacy</layout>
-    </snapshotRepository>
-    <site>
-      <id>first</id>
-      <name>dev site</name>
-      <url>http://dev.example.com</url>
-    </site>
-    <downloadUrl>http://dev.example.com/downloads</downloadUrl>
-    <status>active</status>
-    <relocation>
-      <groupId>org.group</groupId>
-      <artifactId>artifact</artifactId>
-      <version>1.2.3</version>
-      <message>follow the maven convention</message>
-    </relocation>
-  </distributionManagement>
   <properties>
     <key1>value1</key1>
     <key2>value2</key2>
   </properties>
-  <dependencyManagement>
-    <dependencies>
-      <dependency>
-        <groupId>com.example</groupId>
-        <artifactId>tools</artifactId>
-        <version>1.2.3</version>
-        <classifier>super</classifier>
-        <scope>provided</scope>
-        <systemPath>/home/development/tools.jar</systemPath>
-        <exclusions>
-          <exclusion>
-            <groupId>org.example</groupId>
-            <artifactId>some</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>org.example</groupId>
-            <artifactId>something</artifactId>
-          </exclusion>
-        </exclusions>
-        <optional>true</optional>
-      </dependency>
-    </dependencies>
-  </dependencyManagement>
   <dependencies>
     <dependency>
-      <groupId>com.example</groupId>
-      <artifactId>tools</artifactId>
-      <version>2.3</version>
-      <type>war</type>
-      <classifier>super</classifier>
-      <scope>provided</scope>
-      <systemPath>/home/development/wartools.jar</systemPath>
       <exclusions>
         <exclusion>
           <groupId>org.example</groupId>
@@ -215,6 +86,13 @@
           <artifactId>something</artifactId>
         </exclusion>
       </exclusions>
+      <groupId>com.example</groupId>
+      <artifactId>tools</artifactId>
+      <version>2.3</version>
+      <type>war</type>
+      <classifier>super</classifier>
+      <scope>provided</scope>
+      <systemPath>/home/development/wartools.jar</systemPath>
       <optional>false</optional>
     </dependency>
   </dependencies>
@@ -252,6 +130,129 @@
       <layout>legacy</layout>
     </repository>
   </repositories>
+  <modelVersion>1.0.1</modelVersion>
+  <name>my name</name>
+  <artifactId>project</artifactId>
+  <url>example.com</url>
+  <parent>
+    <groupId>example</groupId>
+    <artifactId>parent</artifactId>
+    <version>1.1</version>
+    <relativePath>../pom.xml</relativePath>
+  </parent>
+  <packaging>jar</packaging>
+  <description>some description</description>
+  <inceptionYear>2020</inceptionYear>
+  <organization>
+    <name>ngo</name>
+    <url>ngo.org</url>
+  </organization>
+  <prerequisites>
+    <maven>3.0.5</maven>
+  </prerequisites>
+  <scm>
+    <connection>scm:git:git://github.com/torquebox/maven-tools.git</connection>
+    <developerConnection>scm:git:ssh://git@github.com/torquebox/maven-tools.git</developerConnection>
+    <url>http://github.com/torquebox/maven-tools</url>
+    <tag>first</tag>
+  </scm>
+  <issueManagement>
+    <url>https://issues.sonatype.org/</url>
+    <system>jira</system>
+  </issueManagement>
+  <ciManagement>
+    <notifiers>
+      <notifier>
+        <type>email</type>
+        <address>mail2@example.com</address>
+      </notifier>
+      <notifier>
+        <configuration>
+          <key1>value1</key1>
+          <key2>value2</key2>
+        </configuration>
+        <type>email</type>
+        <address>mail@example.com</address>
+        <sendOnError>true</sendOnError>
+        <sendOnFailure>false</sendOnFailure>
+        <sendOnSuccess>true</sendOnSuccess>
+        <sendOnWarning>false</sendOnWarning>
+      </notifier>
+    </notifiers>
+    <url>travis-ci.org/jruby/jruby</url>
+    <system>travis</system>
+  </ciManagement>
+  <distributionManagement>
+    <status>active</status>
+    <downloadUrl>http://dev.example.com/downloads</downloadUrl>
+    <repository>
+      <id>first</id>
+      <name>First</name>
+      <url>http://repo.example.com</url>
+      <layout>legacy</layout>
+      <releases>
+        <enabled>true</enabled>
+        <updatePolicy>daily</updatePolicy>
+        <checksumPolicy>strict</checksumPolicy>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+        <updatePolicy>never</updatePolicy>
+        <checksumPolicy>none</checksumPolicy>
+      </snapshots>
+    </repository>
+    <snapshotRepository>
+      <id>snapshots</id>
+      <name>First Snapshots</name>
+      <url>http://snaphots.example.com</url>
+      <layout>legacy</layout>
+      <releases>
+        <enabled>false</enabled>
+        <updatePolicy>daily</updatePolicy>
+        <checksumPolicy>strict</checksumPolicy>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+        <updatePolicy>never</updatePolicy>
+        <checksumPolicy>none</checksumPolicy>
+      </snapshots>
+    </snapshotRepository>
+    <site>
+      <id>first</id>
+      <url>http://dev.example.com</url>
+      <name>dev site</name>
+    </site>
+    <relocation>
+      <groupId>org.group</groupId>
+      <artifactId>artifact</artifactId>
+      <version>1.2.3</version>
+      <message>follow the maven convention</message>
+    </relocation>
+  </distributionManagement>
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>com.example</groupId>
+        <artifactId>tools</artifactId>
+        <version>1.2.3</version>
+        <classifier>super</classifier>
+        <scope>provided</scope>
+        <systemPath>/home/development/tools.jar</systemPath>
+        <exclusions>
+          <exclusion>
+            <groupId>org.example</groupId>
+            <artifactId>some</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.example</groupId>
+            <artifactId>something</artifactId>
+          </exclusion>
+        </exclusions>
+        <optional>true</optional>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
   <pluginRepositories>
     <pluginRepository>
       <releases>
@@ -270,12 +271,30 @@
       <layout>legacy</layout>
     </pluginRepository>
   </pluginRepositories>
+  <profiles>
+    <profile>
+      <id>one</id>
+      <activation>
+        <activeByDefault>false</activeByDefault>
+        <jdk>1.7</jdk>
+        <os>
+          <name>linux</name>
+          <family>nix</family>
+          <arch>x86_64</arch>
+          <version>2.7</version>
+        </os>
+        <property>
+          <name>test</name>
+          <value>extended</value>
+        </property>
+        <file>
+          <missing>required_file</missing>
+          <exists>optional</exists>
+        </file>
+      </activation>
+    </profile>
+  </profiles>
   <build>
-    <sourceDirectory>src</sourceDirectory>
-    <scriptSourceDirectory>script</scriptSourceDirectory>
-    <testSourceDirectory>test</testSourceDirectory>
-    <outputDirectory>pkg</outputDirectory>
-    <testOutputDirectory>pkg/test</testOutputDirectory>
     <extensions>
       <extension>
         <groupId>org.group</groupId>
@@ -283,7 +302,6 @@
         <version>1.2</version>
       </extension>
     </extensions>
-    <defaultGoal>deploy</defaultGoal>
     <resources>
       <resource>
         <targetPath>target</targetPath>
@@ -310,14 +328,100 @@
         </excludes>
       </testResource>
     </testResources>
+    <plugins>
+      <plugin>
+        <configuration>
+          <finalName>testing</finalName>
+        </configuration>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>1.0</version>
+        <inherited>false</inherited>
+        <extensions>true</extensions>
+      </plugin>
+      <plugin>
+        <dependencies>
+          <dependency>
+            <groupId>rubygems</groupId>
+            <artifactId>bundler</artifactId>
+            <version>1.7.13</version>
+            <type>gem</type>
+          </dependency>
+        </dependencies>
+        <groupId>de.saumya.mojo</groupId>
+        <artifactId>gem-maven-plugin</artifactId>
+        <version>1.0.0</version>
+        <extensions>false</extensions>
+      </plugin>
+      <plugin>
+        <executions>
+          <execution>
+            <goals>
+              <goal>run</goal>
+            </goals>
+            <configuration>
+              <tasks>
+                <exec
+                  executable="/bin/sh"
+                  osfamily="unix">
+                  <arg
+                    line="-c 'cp &quot;${jruby.basedir}/bin/jruby.bash&quot; &quot;${jruby.basedir}/bin/jruby&quot;'">
+                  </arg>
+                </exec>
+                <chmod
+                  file="${jruby.basedir}/bin/jruby"
+                  perm="755">
+                </chmod>
+              </tasks>
+            </configuration>
+            <phase>package</phase>
+            <id>copy</id>
+          </execution>
+        </executions>
+        <dependencies>
+          <dependency>
+            <groupId>org.super.duper</groupId>
+            <artifactId>executor</artifactId>
+            <version>1.0.0</version>
+          </dependency>
+        </dependencies>
+        <artifactId>maven-antrun-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <executions>
+          <execution>
+            <goals>
+              <goal>exec</goal>
+            </goals>
+            <configuration>
+              <arguments>
+                <argument>-Djruby.bytecode.version=${base.java.version}</argument>
+                <argument>-classpath</argument>
+                <classpath/>
+                <argument>org.jruby.anno.InvokerGenerator</argument>
+                <argument>${anno.sources}/annotated_classes.txt</argument>
+                <argument>${project.build.outputDirectory}</argument>
+              </arguments>
+              <executable>java</executable>
+              <classpathScope>compile</classpathScope>
+            </configuration>
+            <id>invoker-generator</id>
+          </execution>
+        </executions>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+      </plugin>
+    </plugins>
+    <defaultGoal>deploy</defaultGoal>
     <directory>target</directory>
     <finalName>myproject</finalName>
+    <sourceDirectory>src</sourceDirectory>
+    <scriptSourceDirectory>script</scriptSourceDirectory>
+    <testSourceDirectory>test</testSourceDirectory>
+    <outputDirectory>pkg</outputDirectory>
+    <testOutputDirectory>pkg/test</testOutputDirectory>
     <pluginManagement>
       <plugins>
         <plugin>
-          <groupId>de.saumya.mojo</groupId>
-          <artifactId>gem-maven-plugin</artifactId>
-          <version>2.0.1</version>
           <configuration>
             <scope>compile</scope>
             <gems>
@@ -325,11 +429,11 @@
               <jdbc-mysql>5.1.30</jdbc-mysql>
             </gems>
           </configuration>
+          <groupId>de.saumya.mojo</groupId>
+          <artifactId>gem-maven-plugin</artifactId>
+          <version>2.0.1</version>
         </plugin>
         <plugin>
-          <groupId>org.mortbay.jetty</groupId>
-          <artifactId>jetty-maven-plugin</artifactId>
-          <version>8.1</version>
           <configuration>
             <path>/</path>
             <connectors>
@@ -349,114 +453,11 @@
               <port>${run.port}</port>
             </httpConnector>
           </configuration>
+          <groupId>org.mortbay.jetty</groupId>
+          <artifactId>jetty-maven-plugin</artifactId>
+          <version>8.1</version>
         </plugin>
       </plugins>
     </pluginManagement>
-    <plugins>
-      <plugin>
-        <artifactId>maven-jar-plugin</artifactId>
-        <version>1.0</version>
-        <extensions>true</extensions>
-        <inherited>false</inherited>
-        <configuration>
-          <finalName>testing</finalName>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>de.saumya.mojo</groupId>
-        <artifactId>gem-maven-plugin</artifactId>
-        <version>1.0.0</version>
-        <extensions>false</extensions>
-        <dependencies>
-          <dependency>
-            <groupId>rubygems</groupId>
-            <artifactId>bundler</artifactId>
-            <version>1.7.13</version>
-            <type>gem</type>
-          </dependency>
-        </dependencies>
-      </plugin>
-      <plugin>
-        <artifactId>maven-antrun-plugin</artifactId>
-        <executions>
-          <execution>
-            <id>copy</id>
-            <phase>package</phase>
-            <goals>
-              <goal>run</goal>
-            </goals>
-            <configuration>
-              <tasks>
-                <exec
-                  executable="/bin/sh"
-                  osfamily="unix">
-                  <arg
-                    line="-c 'cp &quot;${jruby.basedir}/bin/jruby.bash&quot; &quot;${jruby.basedir}/bin/jruby&quot;'">
-                  </arg>
-                </exec>
-                <chmod
-                  file="${jruby.basedir}/bin/jruby"
-                  perm="755">
-                </chmod>
-              </tasks>
-            </configuration>
-          </execution>
-        </executions>
-        <dependencies>
-          <dependency>
-            <groupId>org.super.duper</groupId>
-            <artifactId>executor</artifactId>
-            <version>1.0.0</version>
-          </dependency>
-        </dependencies>
-      </plugin>
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>exec-maven-plugin</artifactId>
-        <executions>
-          <execution>
-            <id>invoker-generator</id>
-            <goals>
-              <goal>exec</goal>
-            </goals>
-            <configuration>
-              <arguments>
-                <argument>-Djruby.bytecode.version=${base.java.version}</argument>
-                <argument>-classpath</argument>
-                <classpath/>
-                <argument>org.jruby.anno.InvokerGenerator</argument>
-                <argument>${anno.sources}/annotated_classes.txt</argument>
-                <argument>${project.build.outputDirectory}</argument>
-              </arguments>
-              <executable>java</executable>
-              <classpathScope>compile</classpathScope>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-    </plugins>
   </build>
-  <profiles>
-    <profile>
-      <id>one</id>
-      <activation>
-        <activeByDefault>false</activeByDefault>
-        <jdk>1.7</jdk>
-        <os>
-          <name>linux</name>
-          <family>nix</family>
-          <arch>x86_64</arch>
-          <version>2.7</version>
-        </os>
-        <property>
-          <name>test</name>
-          <value>extended</value>
-        </property>
-        <file>
-          <missing>required_file</missing>
-          <exists>optional</exists>
-        </file>
-      </activation>
-    </profile>
-  </profiles>
 </project>

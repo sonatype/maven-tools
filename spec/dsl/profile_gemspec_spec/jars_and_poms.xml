@@ -1,9 +1,4 @@
 <project>
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>no_group_id_given</groupId>
-  <artifactId>profile_gemspec_spec</artifactId>
-  <version>0.0.0</version>
-  <name>profile_gemspec_spec</name>
   <properties>
     <project.build.sourceEncoding>utf-8</project.build.sourceEncoding>
     <jruby.plugins.version>2.0.1</jruby.plugins.version>
@@ -16,22 +11,22 @@
       <version>1.6.4</version>
     </dependency>
     <dependency>
+      <type>pom</type>
       <groupId>org.jruby</groupId>
       <artifactId>jruby</artifactId>
       <version>1.7.16</version>
-      <type>pom</type>
     </dependency>
     <dependency>
-      <groupId>org.jruby</groupId>
-      <artifactId>jruby</artifactId>
-      <version>1.7.16</version>
-      <classifier>noasm</classifier>
       <exclusions>
         <exclusion>
           <groupId>org.jruby</groupId>
           <artifactId>jruby-stdlib</artifactId>
         </exclusion>
       </exclusions>
+      <groupId>org.jruby</groupId>
+      <artifactId>jruby</artifactId>
+      <version>1.7.16</version>
+      <classifier>noasm</classifier>
     </dependency>
   </dependencies>
   <repositories>
@@ -40,6 +35,11 @@
       <url>mavengem:https://rubygems.org</url>
     </repository>
   </repositories>
+  <modelVersion>4.0.0</modelVersion>
+  <name>profile_gemspec_spec</name>
+  <groupId>no_group_id_given</groupId>
+  <artifactId>profile_gemspec_spec</artifactId>
+  <version>0.0.0</version>
   <build>
     <extensions>
       <extension>
@@ -50,12 +50,12 @@
     </extensions>
     <plugins>
       <plugin>
-        <groupId>de.saumya.mojo</groupId>
-        <artifactId>gem-maven-plugin</artifactId>
-        <version>${jruby.plugins.version}</version>
         <configuration>
           <gemspec>jars_and_poms.gemspec</gemspec>
         </configuration>
+        <groupId>de.saumya.mojo</groupId>
+        <artifactId>gem-maven-plugin</artifactId>
+        <version>${jruby.plugins.version}</version>
       </plugin>
     </plugins>
   </build>
