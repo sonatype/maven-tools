@@ -10,11 +10,6 @@
 -->
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>no_group_id_given</groupId>
-  <artifactId>pom_from_jarfile</artifactId>
-  <version>0.0.0</version>
-  <name>example from jarfile</name>
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -25,8 +20,13 @@
       <groupId>ruby.maven-tools.jar</groupId>
       <artifactId>myfirst</artifactId>
       <version>0</version>
-      <scope>system</scope>
       <systemPath>${basedir}/myfirst.jar</systemPath>
+      <scope>system</scope>
     </dependency>
   </dependencies>
+  <modelVersion>4.0.0</modelVersion>
+  <name>example from jarfile</name>
+  <groupId>no_group_id_given</groupId>
+  <artifactId>pom_from_jarfile</artifactId>
+  <version>0.0.0</version>
 </project>

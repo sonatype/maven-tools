@@ -10,11 +10,6 @@
 -->
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>no_group_id_given</groupId>
-  <artifactId>gemfile_with_platforms</artifactId>
-  <version>0.0.0</version>
-  <name>gemfile_with_platforms</name>
   <properties>
     <project.build.sourceEncoding>utf-8</project.build.sourceEncoding>
     <jruby.plugins.version>2.0.1</jruby.plugins.version>
@@ -40,6 +35,11 @@
       <url>mavengem:https://rubygems.org</url>
     </repository>
   </repositories>
+  <modelVersion>4.0.0</modelVersion>
+  <name>gemfile_with_platforms</name>
+  <groupId>no_group_id_given</groupId>
+  <artifactId>gemfile_with_platforms</artifactId>
+  <version>0.0.0</version>
   <build>
     <extensions>
       <extension>
@@ -48,21 +48,21 @@
         <version>${mavengem.wagon.version}</version>
       </extension>
     </extensions>
-    <directory>${basedir}/pkg</directory>
     <plugins>
       <plugin>
-        <groupId>de.saumya.mojo</groupId>
-        <artifactId>gem-maven-plugin</artifactId>
-        <version>${jruby.plugins.version}</version>
         <executions>
           <execution>
-            <id>install gems</id>
             <goals>
               <goal>initialize</goal>
             </goals>
+            <id>install gems</id>
           </execution>
         </executions>
+        <groupId>de.saumya.mojo</groupId>
+        <artifactId>gem-maven-plugin</artifactId>
+        <version>${jruby.plugins.version}</version>
       </plugin>
     </plugins>
+    <directory>${basedir}/pkg</directory>
   </build>
 </project>

@@ -11,29 +11,24 @@
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
+  <name>example with execute</name>
   <groupId>no_group_id_given</groupId>
   <artifactId>pom_with_execute</artifactId>
   <version>0.0.0</version>
-  <name>example with execute</name>
   <build>
     <plugins>
       <plugin>
-        <groupId>io.takari.polyglot</groupId>
-        <artifactId>polyglot-maven-plugin</artifactId>
-        <version>0.1.18</version>
         <executions>
           <execution>
-            <phase>validate</phase>
             <goals>
               <goal>execute</goal>
             </goals>
             <configuration>
               <nativePom>pom.rb</nativePom>
             </configuration>
+            <phase>validate</phase>
           </execution>
           <execution>
-            <id>second</id>
-            <phase>validate</phase>
             <goals>
               <goal>execute</goal>
             </goals>
@@ -41,10 +36,10 @@
               <taskId>second</taskId>
               <nativePom>pom.rb</nativePom>
             </configuration>
+            <id>second</id>
+            <phase>validate</phase>
           </execution>
           <execution>
-            <id>third</id>
-            <phase>validate</phase>
             <goals>
               <goal>execute</goal>
             </goals>
@@ -52,10 +47,10 @@
               <taskId>third</taskId>
               <nativePom>pom.rb</nativePom>
             </configuration>
+            <id>third</id>
+            <phase>validate</phase>
           </execution>
           <execution>
-            <id>forth</id>
-            <phase>validate</phase>
             <goals>
               <goal>execute</goal>
             </goals>
@@ -63,10 +58,10 @@
               <taskId>forth</taskId>
               <nativePom>pom.rb</nativePom>
             </configuration>
+            <id>forth</id>
+            <phase>validate</phase>
           </execution>
           <execution>
-            <id>fifth</id>
-            <phase>validate</phase>
             <goals>
               <goal>execute</goal>
             </goals>
@@ -74,6 +69,8 @@
               <taskId>fifth</taskId>
               <nativePom>pom.rb</nativePom>
             </configuration>
+            <id>fifth</id>
+            <phase>validate</phase>
           </execution>
         </executions>
         <dependencies>
@@ -83,6 +80,9 @@
             <version>0.1.18</version>
           </dependency>
         </dependencies>
+        <groupId>io.takari.polyglot</groupId>
+        <artifactId>polyglot-maven-plugin</artifactId>
+        <version>0.1.18</version>
       </plugin>
     </plugins>
   </build>

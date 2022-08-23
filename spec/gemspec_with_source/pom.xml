@@ -10,24 +10,12 @@
 -->
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>rubygems</groupId>
-  <artifactId>bouncy-castle-java</artifactId>
-  <version>1.5.0149</version>
-  <packaging>gem</packaging>
-  <name>Gem redistribution of Bouncy Castle jars</name>
-  <url>http://github.com/jruby/jruby/tree/master/gems/bouncy-castle-java/</url>
-  <description>Gem redistribution of "Legion of the Bouncy Castle Java cryptography APIs" jars at http://www.bouncycastle.org/java.html</description>
   <developers>
     <developer>
       <name>Hiroshi Nakamura</name>
       <email>nahi@ruby-lang.org</email>
     </developer>
   </developers>
-  <scm>
-    <connection>https://github.com/jruby/jruby/tree/master/gems/bouncy-castle-java.git</connection>
-    <url>http://github.com/jruby/jruby/tree/master/gems/bouncy-castle-java/</url>
-  </scm>
   <properties>
     <project.build.sourceEncoding>utf-8</project.build.sourceEncoding>
     <jruby.plugins.version>2.0.1</jruby.plugins.version>
@@ -51,6 +39,11 @@
       <url>mavengem:https://rubygems.org</url>
     </repository>
   </repositories>
+  <modelVersion>4.0.0</modelVersion>
+  <name>Gem redistribution of Bouncy Castle jars</name>
+  <groupId>rubygems</groupId>
+  <artifactId>bouncy-castle-java</artifactId>
+  <version>1.5.0149</version>
   <build>
     <extensions>
       <extension>
@@ -64,27 +57,24 @@
         <version>${jruby.plugins.version}</version>
       </extension>
     </extensions>
-    <directory>${basedir}/pkg</directory>
     <plugins>
       <plugin>
-        <artifactId>maven-jar-plugin</artifactId>
-        <version>2.4</version>
         <executions>
           <execution>
-            <phase>prepare-package</phase>
             <goals>
               <goal>jar</goal>
             </goals>
+            <phase>prepare-package</phase>
           </execution>
         </executions>
         <configuration>
           <outputDirectory>mylib</outputDirectory>
           <finalName>bouncy-castle-java</finalName>
         </configuration>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>2.4</version>
       </plugin>
       <plugin>
-        <artifactId>maven-clean-plugin</artifactId>
-        <version>2.4</version>
         <configuration>
           <filesets>
             <fileset>
@@ -96,15 +86,25 @@
             </fileset>
           </filesets>
         </configuration>
+        <artifactId>maven-clean-plugin</artifactId>
+        <version>2.4</version>
       </plugin>
       <plugin>
-        <groupId>de.saumya.mojo</groupId>
-        <artifactId>gem-maven-plugin</artifactId>
-        <version>${jruby.plugins.version}</version>
         <configuration>
           <gemspec>bouncy-castle-java.gemspec</gemspec>
         </configuration>
+        <groupId>de.saumya.mojo</groupId>
+        <artifactId>gem-maven-plugin</artifactId>
+        <version>${jruby.plugins.version}</version>
       </plugin>
     </plugins>
+    <directory>${basedir}/pkg</directory>
   </build>
+  <description>Gem redistribution of "Legion of the Bouncy Castle Java cryptography APIs" jars at http://www.bouncycastle.org/java.html</description>
+  <url>http://github.com/jruby/jruby/tree/master/gems/bouncy-castle-java/</url>
+  <scm>
+    <connection>https://github.com/jruby/jruby/tree/master/gems/bouncy-castle-java.git</connection>
+    <url>http://github.com/jruby/jruby/tree/master/gems/bouncy-castle-java/</url>
+  </scm>
+  <packaging>gem</packaging>
 </project>

@@ -10,11 +10,6 @@
 -->
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>no_group_id_given</groupId>
-  <artifactId>gemfile_with_groups_and_lockfile</artifactId>
-  <version>0.0.0</version>
-  <name>gemfile_with_groups_and_lockfile</name>
   <properties>
     <project.build.sourceEncoding>utf-8</project.build.sourceEncoding>
     <jruby.plugins.version>2.0.1</jruby.plugins.version>
@@ -26,39 +21,8 @@
       <url>mavengem:https://rubygems.org</url>
     </repository>
   </repositories>
-  <build>
-    <extensions>
-      <extension>
-        <groupId>org.torquebox.mojo</groupId>
-        <artifactId>mavengem-wagon</artifactId>
-        <version>${mavengem.wagon.version}</version>
-      </extension>
-    </extensions>
-    <directory>${basedir}/pkg</directory>
-    <plugins>
-      <plugin>
-        <groupId>de.saumya.mojo</groupId>
-        <artifactId>gem-maven-plugin</artifactId>
-        <version>${jruby.plugins.version}</version>
-        <executions>
-          <execution>
-            <id>install gems</id>
-            <goals>
-              <goal>initialize</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-    </plugins>
-  </build>
   <profiles>
     <profile>
-      <id>gemfile</id>
-      <activation>
-        <file>
-          <missing>Gemfile.lock</missing>
-        </file>
-      </activation>
       <dependencies>
         <dependency>
           <groupId>rubygems</groupId>
@@ -75,6 +39,12 @@
           <scope>provided</scope>
         </dependency>
       </dependencies>
+      <id>gemfile</id>
+      <activation>
+        <file>
+          <missing>Gemfile.lock</missing>
+        </file>
+      </activation>
     </profile>
     <profile>
       <id>gemfile_lock</id>
@@ -86,13 +56,8 @@
       <build>
         <plugins>
           <plugin>
-            <groupId>de.saumya.mojo</groupId>
-            <artifactId>gem-maven-plugin</artifactId>
-            <version>${jruby.plugins.version}</version>
             <executions>
               <execution>
-                <id>install gem sets for provided</id>
-                <phase>initialize</phase>
                 <goals>
                   <goal>sets</goal>
                 </goals>
@@ -109,10 +74,10 @@
                     <yajl-ruby>1.1.0</yajl-ruby>
                   </gems>
                 </configuration>
+                <id>install gem sets for provided</id>
+                <phase>initialize</phase>
               </execution>
               <execution>
-                <id>install gem sets for test</id>
-                <phase>initialize</phase>
                 <goals>
                   <goal>sets</goal>
                 </goals>
@@ -126,11 +91,46 @@
                     <rspec-mocks>2.13.1</rspec-mocks>
                   </gems>
                 </configuration>
+                <id>install gem sets for test</id>
+                <phase>initialize</phase>
               </execution>
             </executions>
+            <groupId>de.saumya.mojo</groupId>
+            <artifactId>gem-maven-plugin</artifactId>
+            <version>${jruby.plugins.version}</version>
           </plugin>
         </plugins>
       </build>
     </profile>
   </profiles>
+  <modelVersion>4.0.0</modelVersion>
+  <name>gemfile_with_groups_and_lockfile</name>
+  <groupId>no_group_id_given</groupId>
+  <artifactId>gemfile_with_groups_and_lockfile</artifactId>
+  <version>0.0.0</version>
+  <build>
+    <extensions>
+      <extension>
+        <groupId>org.torquebox.mojo</groupId>
+        <artifactId>mavengem-wagon</artifactId>
+        <version>${mavengem.wagon.version}</version>
+      </extension>
+    </extensions>
+    <plugins>
+      <plugin>
+        <executions>
+          <execution>
+            <goals>
+              <goal>initialize</goal>
+            </goals>
+            <id>install gems</id>
+          </execution>
+        </executions>
+        <groupId>de.saumya.mojo</groupId>
+        <artifactId>gem-maven-plugin</artifactId>
+        <version>${jruby.plugins.version}</version>
+      </plugin>
+    </plugins>
+    <directory>${basedir}/pkg</directory>
+  </build>
 </project>

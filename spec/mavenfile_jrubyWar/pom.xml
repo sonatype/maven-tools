@@ -10,15 +10,15 @@
 -->
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <properties>
+    <jruby9.plugins.version>0.3.0</jruby9.plugins.version>
+  </properties>
   <modelVersion>4.0.0</modelVersion>
+  <name>mavenfile_jrubyWar</name>
   <groupId>no_group_id_given</groupId>
   <artifactId>mavenfile_jrubyWar</artifactId>
   <version>0.0.0</version>
   <packaging>jrubyWar</packaging>
-  <name>mavenfile_jrubyWar</name>
-  <properties>
-    <jruby9.plugins.version>0.3.0</jruby9.plugins.version>
-  </properties>
   <build>
     <extensions>
       <extension>
@@ -29,10 +29,10 @@
     </extensions>
     <resources>
       <resource>
-        <directory>${basedir}</directory>
         <includes>
           <include>something</include>
         </includes>
+        <directory>${basedir}</directory>
       </resource>
     </resources>
     <directory>${basedir}/pkg</directory>

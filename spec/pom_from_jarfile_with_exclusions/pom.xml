@@ -9,18 +9,8 @@
 
 -->
 <project>
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>no_group_id_given</groupId>
-  <artifactId>pom_from_jarfile_with_exclusions</artifactId>
-  <version>0.0.0</version>
-  <name>example from jarfile</name>
   <dependencies>
     <dependency>
-      <groupId>asd</groupId>
-      <artifactId>asd</artifactId>
-      <version>123</version>
-      <classifier>source</classifier>
-      <scope>test</scope>
       <exclusions>
         <exclusion>
           <groupId>group</groupId>
@@ -35,8 +25,8 @@
           <artifactId>a3</artifactId>
         </exclusion>
         <exclusion>
-          <groupId>group</groupId>
           <artifactId>a4</artifactId>
+          <groupId>group</groupId>
         </exclusion>
         <exclusion>
           <groupId>group</groupId>
@@ -51,12 +41,13 @@
           <artifactId>a7</artifactId>
         </exclusion>
       </exclusions>
+      <scope>test</scope>
+      <classifier>source</classifier>
+      <groupId>asd</groupId>
+      <artifactId>asd</artifactId>
+      <version>123</version>
     </dependency>
     <dependency>
-      <groupId>dsa</groupId>
-      <artifactId>dsa</artifactId>
-      <version>12</version>
-      <classifier>provided</classifier>
       <exclusions>
         <exclusion>
           <groupId>group</groupId>
@@ -71,6 +62,15 @@
           <artifactId>b3</artifactId>
         </exclusion>
       </exclusions>
+      <groupId>dsa</groupId>
+      <artifactId>dsa</artifactId>
+      <version>12</version>
+      <classifier>provided</classifier>
     </dependency>
   </dependencies>
+  <modelVersion>4.0.0</modelVersion>
+  <name>example from jarfile</name>
+  <groupId>no_group_id_given</groupId>
+  <artifactId>pom_from_jarfile_with_exclusions</artifactId>
+  <version>0.0.0</version>
 </project>
